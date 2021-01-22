@@ -1,22 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {Provider} from 'react-redux';
+import PrincipalFlow from './src/navigation/principalFlow';
+import store from './src/redux/store';
 
-export default function App() {
+if(!global.btoa) global.btoa = encode;
+if(!global.atob) global.atob = decode;
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Aplicación movil alcaldia de Pasto</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <PrincipalFlow />
+    </Provider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
  
