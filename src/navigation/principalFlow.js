@@ -1,32 +1,32 @@
 import React from 'react';
-import { View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
 import { Icon } from 'react-native-elements';
 import Feed from '../screens/Feed';
 import Form from '../screens/Form';
-import Info from '../screens/Info';
+import Info from '../screens/Info'
 
+const Tab = createBottomTabNavigator();
 export default function App() {
     return(
     <NavigationContainer>
      <Tab.Navigator
-    screenOptions={({ route }) => ({
+      screenOptions={({ route }) => ({
       tabBarIcon: ({ focused, size }) => {
-        const iconColor = focused ? '#6E00FF' : '#BFB6B6';
+        const iconColor = focused ? '#3c73f4' : '#BFB6B6';
         if (route.name === 'Feed') {
-            return <Icon name="user-alt" type="font-awesome-5" color={iconColor} size={size} />;
+            return <Icon name="newspaper" type="font-awesome-5" color={iconColor} size={size} />;
           } if (route.name === 'Form') {
             return <Icon name="stats-chart" type="ionicon" color={iconColor} size={size} />;
           } if (route.name === 'Info') {
-            return <Icon name="local-grocery-store" type="material-icons" color={iconColor} size={size} />;
+            return <Icon name="info" type="font-awesome-5" color={iconColor} size={size} />;
         }
       },
     })}
     tabBarOptions={{
       showLabel: false,
     }}
-    initialRouteName="Inicio"
+    initialRouteName="Feed"
     headerMode="none"
   >
     <Tab.Screen name="Feed" component={Feed} />
