@@ -9,6 +9,7 @@ import InputBasic from '../../components/InputBasic';
 import ButtonBasic from '../../components/ButtonBasic';
 import logo from '../../../assets/logoalcaldia.png';
 import { register } from './actionCreator';
+import { useDispatch, useSelector } from 'react-redux';
 
 const { height, width } = Dimensions.get('screen');
 
